@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 
 
 def index(request):
-
     return render(request,'main/index.html')
 
 def upload(request): #Загрузка файлов
@@ -40,8 +39,10 @@ def filter(request): #Список файлов и их фильтрация
 
 
 
+def upload(request):
 
+    return render(request,'upload.html')
 
+def filter(request):
 
-
-
+    return render(request,'filter.html')
