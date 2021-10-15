@@ -19,6 +19,16 @@ def upload(request): #Загрузка файлов
     context['files']=files
     return render(request,'main/upload.html',context)
 
+def notime(request):
+    context = {}
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+        context['url'] = fs.url(name)
+    files = File.objects.all()
+    context['files'] = files
+    return render(request, 'main/notime.html', context)
 
 
 def filter(request): #Список файлов и их фильтрация

@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
-    'django-filters'
+    'main'
+
 ]
 
 MIDDLEWARE = [
@@ -110,9 +110,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'FilesStorage/static')
 
 MEDIA_URL = '/media/'
 
-REST_FRAMEWORK = {
-    'DEFAULT-_FILTER_BACKENDS' : (
-        'django_filters.rest_framework.DjangoFilterBackend'
-    )
-}
 
