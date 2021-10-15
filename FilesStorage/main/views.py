@@ -36,13 +36,3 @@ def filter(request): #Список файлов и их фильтрация
     return render(request,'main/filter.html', {
         'form' : form
     })
-
-
-
-def upload(request):
-
-    return render(request,'upload.html')
-
-def filter(request):
-
-    return render(request,'filter.html')
