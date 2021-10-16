@@ -1,19 +1,21 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Без времени
+Загрузка
 {% endblock %}
 
 {% block content %}
 
     <h1>Список файлов</h1>
-    <a href="{% url 'upload'%}" class="w-20 btn btn-lg btn-primary">Показывать все поля</a>
+    <a href="{% url 'notime' %}" class="w-20 btn btn-lg btn-primary">Показывать поля без времени</a>
     <table class="table">
         <thead>
         <tr>
             <th>Название</th>
             <th>Размер</th>
             <th>Тип</th>
+            <th>Время</th>
+            <th>Счётчик</th>
             <th>Скачать</th>
         </tr>
         </thead>
@@ -23,13 +25,13 @@
             <td>{{file.title}}</td>
             <td>{{file.size}}</td>
             <td>{{file.type}}</td>
+            <td>{{file.time}}</td>
+            <td>{{file.counter}}</td>
             <td>
-                <a href="{{ file.file.url}}" download="{{ file.file.url }}" class="bnt btn-primary">Скачать</a>
+                <a href="{{ file.file.url }}" download="{{ file.file.url }}"  class="bnt btn-primary">Скачать</a>
             </td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
-
-
 {% endblock %}

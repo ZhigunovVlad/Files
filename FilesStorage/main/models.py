@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.utils import timezone
 from .validator import file_size
@@ -11,9 +10,12 @@ class File(models.Model):
     size = models.IntegerField()
     time = models.DateTimeField(default=timezone.now())
     file = models.FileField(null=True, blank=True, upload_to='static',validators=[file_size])
+    counter = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
+
+
 
 
 
