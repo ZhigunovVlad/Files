@@ -16,10 +16,12 @@ class FileListView(ListView):
     context_object_name = 'files'
 
 def index(request):
+    '''главная страница'''
     return render(request, 'main/index.html')
 
 
-def upload(request):  # Загрузка файлов
+def filter(request):
+    '''Страница со списком загруженных файлов с полным списком полей'''
     context = {}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
@@ -33,14 +35,17 @@ def upload(request):  # Загрузка файлов
 
 
 def notime(request):
+    '''Страница со списком загруженных файлов с коротким списком полей'''
     context = {}
-    #files = File.objects.filter(type='rar') '''Фильтрация'''
+    #files = File.objects.filter(type='Picture')
     files = File.objects.all()
     context['files'] = files
     return render(request, 'main/notime.html', context)
 
 
-def filter(request):  # Список файлов и их фильтрация
+def upload(request):
+    '''Страница загрузки файлов
+    Для автоматического заполнения полей можно использовать мастер-формы'''
     form = FileForm()
     if request.method == 'POST':
         uploaded_file = request.FILES['file']
@@ -49,13 +54,13 @@ def filter(request):  # Список файлов и их фильтрация
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('upload')
+            return redirect('notime')
         else:
-            form = FileForm()
+            form=FileForm()
     return render(request, 'main/filter.html', {
-        'form': form
+        'form' : form
     })
 
 
-Queryset = File.objects.filter(type="123")
+
 

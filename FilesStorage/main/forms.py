@@ -6,7 +6,7 @@ from django_filters import rest_framework as filters
 class FileForm(forms.ModelForm):
     class Meta:
         model = File
-        fields = {'title', 'type', 'size', 'file'}
+        fields = {'file','title','type','size','details'}
 
 
 class CharFilterInFilter(filters.BaseInFilter, filters.CharFilter):

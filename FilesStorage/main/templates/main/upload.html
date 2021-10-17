@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Загрузка
+Список
 {% endblock %}
 
 {% block content %}
@@ -14,21 +14,21 @@
             <th>Название</th>
             <th>Размер</th>
             <th>Тип</th>
-            <th>Время</th>
-            <th>Счётчик</th>
-            <th>Скачать</th>
+            <th>Время загрузки</th>
+            <th>Счётчик скачиваний</th>
+            <th>Скачать файл</th>
         </tr>
         </thead>
         <tbody>
         {% for file in files %}
         <tr>
-            <td>{{file.title}}</td>
-            <td>{{file.size}}</td>
-            <td>{{file.type}}</td>
+            <td>{{file.filename}}</td>
+            <td>{{file.filesize}}</td>
+            <td>{{file.filetype}}</td>
             <td>{{file.time}}</td>
             <td>{{file.counter}}</td>
             <td>
-                <a href="{{ file.file.url }}" download="{{ file.file.url }}"  class="bnt btn-primary">Скачать</a>
+                <a  href="{{ file.file.url }}"  download="{{ file.file.url }}"  class="bnt btn-primary">Скачать</a>
             </td>
         </tr>
         {% endfor %}

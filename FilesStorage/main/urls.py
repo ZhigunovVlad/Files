@@ -9,8 +9,7 @@ urlpatterns = [
     path('', views.index,name='home'),
     path('upload',views.upload,name='upload'),
     path('filter',views.filter,name='filter'),
-    path('notime',views.notime,name='notime'),
-    path('view',views.FileListView.as_view(),name='view')
+    path('notime',views.notime,name='notime')
 ]
 
 if settings.DEBUG :
