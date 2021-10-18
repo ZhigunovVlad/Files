@@ -3,7 +3,8 @@
 import datetime
 from django.db import migrations, models
 from django.utils.timezone import utc
-import main.validator
+
+
 
 
 class Migration(migrations.Migration):
@@ -22,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='file',
             name='file',
-            field=models.FileField(blank=True, null=True, upload_to='static', validators=[main.validator.file_size]),
+            field=models.FileField(blank=True, null=True, upload_to='media'),
         ),
         migrations.AlterField(
             model_name='file',

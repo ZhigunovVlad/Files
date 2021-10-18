@@ -5,7 +5,7 @@ from .validator import file_size
 
 
 class File(models.Model):
-    file = models.FileField(null=True, blank=True, upload_to='static', validators=[file_size])
+    file = models.FileField(null=True, blank=True, upload_to='media', validators=[file_size])
     title = models.CharField(max_length=30,default='')
     type = models.CharField(max_length=15)
     size = models.CharField(max_length=20)
